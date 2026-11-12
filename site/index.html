@@ -3,14 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ee">
+  <meta name="description" content="Find Irish exam papers and study your flashcards.">
   <title>Open Tutor Ireland</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="https://cdn.jsdelivr.net/gh/vivantaneja/Past-Examination-Finder@55c0eec69fcea8870fdb5bfdd83aaa9fd3ed422b/catalogue.js"
+    integrity="sha384-HIcMao87WD++Dw9CfQiSvwb2R6GjOzrrhF413FshHxvd89k610PxGguDMXQCbZVm" crossorigin="anonymous"></script>
+  <script type="module" src="./app.mjs"></script>
 </head>
 <body>
-  <main>
-    <h1>Open Tutor Ireland</h1>
-    <p>Find Irish exam papers and study your flashcards.</p>
-    <p><a href="https://past-irish-examinations.vivantaneja.com/">Browse past papers</a></p>
-    <p><a href="./oftly/#today">Open Oftly</a></p>
+  <header class="masthead">
+    <div class="wrap top">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true">✳</span> Open Tutor Ireland</a>
+      <nav aria-label="Study tools">
+        <a href="#papers">Past papers</a>
+        <a href="./oftly/#today">Flashcards <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div class="rings" aria-hidden="true"></div>
+      <h1 id="title">Your study desk.</h1>
+      <p>Find Irish exam papers and study your flashcards.</p>
+    </section>
+    <div class="desk">
+      <section class="panel" id="papers" aria-labelledby="paper-title">
+        <div class="panel-heading">
+          <div class="tool-icon" aria-hidden="true"><i class="paper-icon"></i></div>
+          <h2 id="paper-title">Past papers</h2>
+        </div>
+        <form id="search">
+          <label for="query">Search by topic, subject or year</label>
+          <div class="search-line">
+            <input id="query" name="q" type="search" maxlength="100" placeholder="e.g. momentum or 2026 maths" required>
+            <button class="button dark" type="submit">Search</button>
+          </div>
+        </form>
+        <div class="examples" aria-label="Example searches">
+          <button type="button">Momentum</button>
+          <button type="button">Binomial expansion</button>
+          <button type="button">Macbeth</button>
+          <button type="button">2026 maths</button>
+        </div>
+        <p id="status" class="status" role="status"></p>
+        <ol id="results" class="results" hidden></ol>
+        <button id="more" class="button more" type="button" hidden>Show more papers</button>
+        <div class="panel-foot">
+          <a href="https://past-irish-examinations.vivantaneja.com/">Browse with all filters <span aria-hidden="true">↗</span></a>
+          <span>Official SEC materials</span>
+        </div>
+      </section>
+      <section class="panel flashcards" aria-labelledby="flash-title">
+        <div class="panel-heading">
+          <div class="tool-icon" aria-hidden="true"><i class="cards-icon"></i></div>
+          <h2 id="flash-title">Flashcards</h2>
+        </div>
+        <p>Review your decks or import cards from Anki and Quizlet.</p>
+        <a class="button lime" href="./oftly/#today">Open Oftly <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
   </main>
+  <footer class="wrap footer">
+    <span>Built with Past Examination Finder and Oftly.</span>
+    <a href="https://github.com/MilesatAshvantAnand/open-tutor-ireland">Source on GitHub <span aria-hidden="true">↗</span></a>
+  </footer>
 </body>
 </html>
