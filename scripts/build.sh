@@ -16,3 +16,4 @@ cp -R site/. dist/
 cp -R upstream/oftly/dist-web/. dist/oftly/
 cp upstream/oftly/LICENSE upstream/oftly/THIRD-PARTY-NOTICES.md dist/oftly/
 node scripts/mount-oftly.mjs
+node scripts/version-desk.mjs
