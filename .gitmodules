@@ -1,0 +1,6 @@
+[submodule "upstream/oftly"]
+	path = upstream/oftly
+	url = https://github.com/MilesatAshvantAnand/oftly-AshFork.git
+[submodule "upstream/papers"]
+	path = upstream/papers
+	url = https://github.com/vivantaneja/Past-Examination-Finder.git
