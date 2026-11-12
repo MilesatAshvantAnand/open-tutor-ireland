@@ -1,4 +1,4 @@
-import { createSearch } from './search.mjs';
+import { createSearch } from './search.js';
 
 const form = document.getElementById('search');
 const query = document.getElementById('query');

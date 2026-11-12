@@ -1,7 +1,7 @@
-import topics from './topics.mjs';
+import topics from './topics.js';
 
 const exams = { lc: 'Leaving Certificate', jc: 'Junior Cycle', lb: 'Leaving Certificate Applied' };
-const stopWords = new Set(['a', 'and', 'find', 'for', 'from', 'in', 'me', 'of', 'on', 'please', 'show', 'the', 'with']);
+const stopWords = new Set(['a', 'and', 'find', 'for', 'from', 'in', 'me', 'of', 'on', 'past', 'please', 'show', 'the', 'with']);
 const normalize = text => text.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '')
   .replace(/[’']/g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 const contains = (text, phrase) => ` ${text} `.includes(` ${phrase} `);
@@ -37,8 +37,8 @@ export function createSearch(data, catalogue) {
 
   return raw => {
     const query = normalize(raw).replace(/\bmaths?\b/g, 'mathematics')
-      .replace(/\b(leaving cert|lc) applied\b/g, 'lca')
-      .replace(/\bleaving cert\b/g, 'lc').replace(/\bjunior (cert(ificate)?|cycle)\b/g, 'jc')
+      .replace(/\b(leaving cert(?:ificate)?|lc) applied\b/g, 'lca')
+      .replace(/\bleaving cert(?:ificate)?\b/g, 'lc').replace(/\bjunior (cert(ificate)?|cycle)\b/g, 'jc')
       .replace(/\bhl\b/g, 'higher').replace(/\bol\b/g, 'ordinary')
       .replace(/\bmark(?:ing)? schemes?\b/g, 'marking scheme')
       .replace(/\bpapers\b/g, 'paper').replace(/\bpaper 1\b/g, 'paper one').replace(/\bpaper 2\b/g, 'paper two');
