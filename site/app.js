@@ -58,7 +58,7 @@ async function search() {
     shown = 0;
     status.textContent = matches.length
       ? `${matches.length} ${matches.length === 1 ? 'match' : 'matches'} for “${value}”`
-      : `No matches for “${value}”. Try the subject name or browse with all filters.`;
+      : `No matches for “${value}”. Try a broader topic, or search by subject and year.`;
     renderMore();
   } catch {
     if (request === latest) status.textContent = 'The catalogue is unavailable. Try again or open the full finder below.';

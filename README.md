@@ -24,7 +24,7 @@ To publish your fork, select **GitHub Actions** under **Settings → Pages**, en
 
 ## Search coverage
 
-The finder searches the upstream catalogue for subjects, years, levels and materials across Leaving Certificate, Junior Cycle and Leaving Certificate Applied. Topic-to-question matches use the verified entries in `site/topics.js`. Each row contains aliases, a catalogue filename and a page or question label. The paper contents stay with the State Examinations Commission.
+The finder searches the upstream catalogue for subjects, years, levels and materials across Leaving Certificate, Junior Cycle and Leaving Certificate Applied. Type a phrase such as “physics problems from forces and motion” or “2026 ordinary level algebra”. The search recognises topic groups, ranks named subtopics first and keeps year, subject, exam and level filters. Topic matches use the verified entries in `site/topics.js`. Each row contains aliases, a catalogue filename, a page or question label, and an optional group. Add group aliases in `site/search.js`. The paper contents stay with the State Examinations Commission.
 
 Run the catalogue and topic checks with `node --test tests/search.test.mjs upstream/papers/tests/catalogue.test.js`.
 
