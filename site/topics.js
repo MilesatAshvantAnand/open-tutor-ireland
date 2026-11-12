@@ -9,6 +9,7 @@ export default [
   ['Wave interference|destructive interference', '2025', 'LC021ALP000EV.pdf', 10, 'Page 10'],
   ['Ohm’s law|ohms law', '2025', 'LC021ALP000EV.pdf', 6, 'Page 6'],
   ['Binomial expansion|binomial theorem|binomial', '2025', 'LC003ALP100EV.pdf', 14, 'Question 6(a)'],
+  ['Discriminant|quadratic discriminant|quadratics and the discriminant', '2025', 'LC003ALP100EV.pdf', 15, 'Question 6(b)(i)'],
   ['Quadratics|quadratic|quadratic equations|quadratic factors|quadratic factorisation', '2024', 'LC003ALP100EV.pdf', 14, 'Question 6(a)'],
   ['Simultaneous equations', '2024', 'LC003ALP100EV.pdf', 5, 'Question 1(c)'],
   ['Complex numbers|de moivre|de moivre’s theorem', '2026', 'LC003ALP100EV.pdf', 10, 'Question 4'],

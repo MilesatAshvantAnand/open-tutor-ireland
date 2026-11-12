@@ -1,13 +1,18 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 
 const directory = new URL('../dist/oftly/', import.meta.url);
+const config = JSON.parse(await readFile(new URL('../upstream/oftly/vercel.json', import.meta.url)));
+const csp = config.headers[0].headers.find(header => header.key === 'Content-Security-Policy').value
+  .replace(/; frame-ancestors [^;]+/, '');
+const policy = `<meta http-equiv="Content-Security-Policy" content="${csp}">`;
 for (const file of await readdir(directory, { recursive: true })) {
   if (!/\.(html|js|css)$/.test(file) || file === 'sw.js') continue;
   const url = new URL(file, directory);
   const content = await readFile(url, 'utf8');
   // Relocate the literal public paths that Vite's relative base cannot resolve.
   const mounted = content.replace(/(["'])\/(?=brand\/|fonts\/|appearance\.js|theme\.css|privacy(?:\.html|\.css)|sw\.js|#today)/g, '$1./');
-  if (content !== mounted) await writeFile(url, mounted);
+  const output = file.endsWith('.html') ? mounted.replace('<head>', '<head>\n    ' + policy) : mounted;
+  if (content !== output) await writeFile(url, output);
 }
 
 const worker = new URL('sw.js', directory);
